@@ -26,7 +26,9 @@ def get_result(tables: str, values: str, query: str, correct_query: str):
             c.execute(query)
             messages.success('Query can run on empty dataset (no syntax errors)')
         except database._psycopg2.Error as e:
-            messages.error(f'Syntax error: {type(e)} {e}')
+            error_type = type(e)
+            messages.error('Syntax error', f'\n[{error_type.__name__}]', f'\n{e}',
+                           text_options=[[messages.TextFormat.Style.BOLD], [], [messages.TextFormat.Style.ITALIC]])
             return
 
         c.execute(values)
@@ -53,8 +55,8 @@ if __name__ == '__main__':
     argument_parser.set_description('Helper tool to check query errors')
     argument_parser.add_argument('tables', help='CREATE TABLE commands')
     argument_parser.add_argument('values', help='INSERT INTO commands')
-    argument_parser.add_argument('query', help='Query to check')
     argument_parser.add_argument('correct_query', help='Correct query to compare results to')
+    argument_parser.add_argument('query', help='Query(ies) to check', nargs='+')
 
     with open(argument_parser.args.tables) as f:
         tables = f.read()
@@ -62,16 +64,21 @@ if __name__ == '__main__':
     with open(argument_parser.args.values) as f:
         values = f.read()
 
-    with open(argument_parser.args.query) as f:
-        query = f.read()
-
     with open(argument_parser.args.correct_query) as f:
         correct_query = f.read()
 
+    for query_file in argument_parser.args.query: 
+        messages.info('Testing file', query_file,
+                      text_options=[[], [messages.TextFormat.Style.BOLD]])
 
-    get_result(
-        tables=tables,
-        values=values,
-        query=query,
-        correct_query=correct_query
-        )
+        with open(query_file) as f:
+            query = f.read()
+
+        get_result(
+            tables=tables,
+            values=values,
+            query=query,
+            correct_query=correct_query
+            )
+        
+        print()
