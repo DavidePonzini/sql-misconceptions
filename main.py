@@ -1,4 +1,5 @@
 from dav_tools import argument_parser, messages, database
+import os
 
 
 db = database.PostgreSQL(
@@ -10,7 +11,7 @@ db = database.PostgreSQL(
 
 schema = 'sql_misconceptions'
 
-def get_result(tables: str, values: str, query: str, correct_query: str):
+def check_query(tables: str, values: str, query: str, correct_query: str):
     with db.connect() as c:
         # setup schema
         c.delete_schema(schema)
@@ -27,8 +28,8 @@ def get_result(tables: str, values: str, query: str, correct_query: str):
             messages.success('Query can run on empty dataset (no syntax errors)')
         except database._psycopg2.Error as e:
             error_type = type(e)
-            messages.error('Syntax error', f'\n[{error_type.__name__}]', f'\n{e}',
-                           text_options=[[messages.TextFormat.Style.BOLD], [], [messages.TextFormat.Style.ITALIC]])
+            messages.error('Syntax error', f'[{error_type.__name__}]', f'\n{e}',
+                           text_options=[[messages.TextFormat.Style.BOLD]])
             return
 
         c.execute(values)
@@ -74,11 +75,12 @@ if __name__ == '__main__':
         with open(query_file) as f:
             query = f.read()
 
-        get_result(
+        check_query(
             tables=tables,
             values=values,
             query=query,
             correct_query=correct_query
             )
         
-        print()
+        messages.message('=' * os.get_terminal_size().columns, default_text_options=[messages.TextFormat.Style.DIM])
+        
