@@ -48,25 +48,30 @@ def get_result(tables: str, values: str, query: str, correct_query: str):
         c.commit()
 
 
-import dataset_miedema as dataset
-
-query = '''
-SELECT c.cID, c.cName
-FROM customer c
-JOIN store s ON c.city = s.city
-WHERE city = 'Eindhoven';
-'''
-
-correct_query = '''
-SELECT cID, cName
-FROM customer
-WHERE city = 'Eindhoven';
-'''
-
 if __name__ == '__main__':
+    argument_parser.set_developer_info('Davide Ponzini', 'davide.ponzini@edu.unige.it')
+    argument_parser.set_description('Helper tool to check query errors')
+    argument_parser.add_argument('tables', help='CREATE TABLE commands')
+    argument_parser.add_argument('values', help='INSERT INTO commands')
+    argument_parser.add_argument('query', help='Query to check')
+    argument_parser.add_argument('correct_query', help='Correct query to compare results to')
+
+    with open(argument_parser.args.tables) as f:
+        tables = f.read()
+
+    with open(argument_parser.args.values) as f:
+        values = f.read()
+
+    with open(argument_parser.args.query) as f:
+        query = f.read()
+
+    with open(argument_parser.args.correct_query) as f:
+        correct_query = f.read()
+
+
     get_result(
-        tables=dataset.tables,
-        values=dataset.values,
+        tables=tables,
+        values=values,
         query=query,
         correct_query=correct_query
         )
