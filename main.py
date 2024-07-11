@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from dav_tools import argument_parser, messages, database
 import os
 from datetime import datetime
