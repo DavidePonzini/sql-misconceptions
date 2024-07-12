@@ -1,0 +1,1 @@
+SELECT city, COUNT(sID) FROM Store GROUP BY city;

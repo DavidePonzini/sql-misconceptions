@@ -1,0 +1,1 @@
+SELECT * FROM store AS s ORDER s.city ASC

@@ -1,0 +1,1 @@
+SELECT C1.cID AS ID1,C2.cID AS ID2 FROM customer C1,customer C2 WHERE C1.street = C2.street AND C1.city <> C2.city;

@@ -1,0 +1,3 @@
+SELECT *
+FROM store
+SORT BY city ASC;

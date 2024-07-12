@@ -1,0 +1,1 @@
+SELECT * FROM Store ORDER BY city;
