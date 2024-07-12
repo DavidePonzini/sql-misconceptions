@@ -1,0 +1,1 @@
+SELECT t.cID AS CustomerID, t.date AS TransactionDate, t.quantity AS Quantity FROM "transaction" t JOIN product p ON t.pID = p.pID WHERE p.pName = 'Apples';
