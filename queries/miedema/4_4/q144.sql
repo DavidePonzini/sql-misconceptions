@@ -1,3 +1,3 @@
 select cid, transaction.date, transaction.quantity
-from miedema.transaction natural join miedema.product
+from transaction natural join product
 where product.pName = 'Apples'

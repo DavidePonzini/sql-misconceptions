@@ -1,1 +1,3 @@
-SELECT CID,CNAME from customer WHERE city='Eindhoven';
+SELECT CID,CNAME 
+from customer 
+WHERE city='Eindhoven';

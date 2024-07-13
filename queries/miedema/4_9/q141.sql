@@ -1,4 +1,5 @@
-SELECT s.sName AS StoreChainName FROM store s JOIN (
+SELECT s.sName AS StoreChainName 
+FROM store s JOIN (
     SELECT sName
     FROM store
     GROUP BY sName

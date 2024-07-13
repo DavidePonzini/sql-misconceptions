@@ -5,9 +5,9 @@ SELECT
     a.city AS City1,
     b.city AS City2
 FROM
-    miedema.customer a
+    customer a
 JOIN
-    miedema.customer b
+    customer b
 ON
     a.street = b.street AND a.city <> b.city
 WHERE

@@ -3,8 +3,8 @@ SELECT
     t.date, 
     t.quantity
 FROM 
-    miedema.transaction t
+    transaction t
 JOIN 
-    miedema.product p ON t.pID = p.pID
+    product p ON t.pID = p.pID
 WHERE 
     p.pName = 'Apples';

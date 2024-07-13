@@ -1,9 +1,9 @@
 select product.pName
-from miedema.inventory natural join miedema.product
+from inventory natural join product
 where unit_price > (
     
     select unit_price
-    from miedema.inventory natural join miedema.product
+    from inventory natural join product
     where pName = 'bananas'
     
     )
