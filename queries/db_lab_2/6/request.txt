@@ -1,0 +1,1 @@
+Return the list, without duplicates and in reverse alphabetical order, of students who submitted the study plan for the fifth year of the computer science degree course in the academic year 2011/2012 and are in the thesis phase (have been assigned an advisor).

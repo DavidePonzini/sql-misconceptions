@@ -1,0 +1,1 @@
+List the student ID and names of students enrolled before the academic year 2007/2008 who are not yet in their thesis phase (have not been assigned any advisor).

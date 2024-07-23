@@ -1,0 +1,1 @@
+List the student ID of students who graduated in computer science before November 2009.

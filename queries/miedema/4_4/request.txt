@@ -1,0 +1,1 @@
+List all customer IDs, dates and quantities of transactions containing products named Apples.

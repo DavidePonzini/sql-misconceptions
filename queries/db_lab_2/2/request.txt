@@ -1,0 +1,1 @@
+List the list of degree courses, in alphabetical order by faculty and course name, activated before the academic year 2006/2007 (excluded) and after the academic year 2009/2010 (excluded).
