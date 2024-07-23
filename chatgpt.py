@@ -25,11 +25,12 @@ class Message:
             'content': message
         })
 
-    def generate_answer(self, *, model=AIModel.GPT3, require_json=False, add_to_messages=True, temperature=1, top_p=0.1, frequency_penalty=0) -> str:
+    def generate_answer(self, *, model=AIModel.GPT4o_mini, require_json=False, add_to_messages=True, temperature=1, top_p=0.1, frequency_penalty=0) -> str:
         """
         Generates an answer to the current conversation.
 
         Args:
+            model (str): Specifies which model is used to generate the answer. Default is the least expensive.
             require_json (bool, optional): Determines the format of the response. If `True`, the response is returned as a JSON object. If `False`, the response is in plain text. Default is `False`.
             add_to_messages (bool, optional): Specifies whether the generated answer should be added to the conversation messages. If `True`, the answer is appended to `self.messages`. Default is `True`.
             temperature (float, optional): Controls the randomness of the response. Higher values (e.g., 1) make the output more random, while lower values (e.g., 0) make it more deterministic. Default is 1.
@@ -39,7 +40,6 @@ class Message:
         Returns:
             str: The generated answer.
         """
-        # messages.progress('Generating answer...')
         completion = client.chat.completions.create(
             model=model,
             messages=self.messages,
@@ -51,9 +51,7 @@ class Message:
             frequency_penalty=frequency_penalty
         )
 
-        # messages.info('Generated answer')
         self.usage.append(completion.usage)
-        # print_price(completion.usage)
 
         answer = completion.choices[0].message.content
     
@@ -87,9 +85,3 @@ def print_price(usage, cost_in_per_million_tokens, cost_out_per_million_tokens):
     messages.message(f'Cost: {(cost_in + cost_out):.5f} $ (in={usage.prompt_tokens}, out={usage.completion_tokens})',
                      icon='$', icon_options=[messages.TextFormat.Color.BLUE])
 
-
-
-if __name__ == '__main__':
-    message = Message()
-    message.add_decomposition_first_message('Download and store a webpage', 'Write a python program to download and store a webpage')
-    message.generate_answer()
