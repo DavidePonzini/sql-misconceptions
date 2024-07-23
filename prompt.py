@@ -1,6 +1,4 @@
-from dav_tools import argument_parser, messages
-import pyperclip
-import chatgpt
+from dav_tools import argument_parser, messages, chatgpt
 
 
 def make_prompt(query: str, tables: str, values=''):
@@ -56,4 +54,3 @@ if __name__ == '__main__':
         chatgpt.print_price(message.usage[-1], .15, .6)
 
     print(answer)
-    
