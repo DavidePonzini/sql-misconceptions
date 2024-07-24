@@ -3,6 +3,6 @@ select
 	nome,
 	cognome
 from 
-	unicorsi.studenti
+	studenti
 where 
 	iscrizione < 2007 AND relatore=NULL ;

@@ -1,7 +1,7 @@
 SELECT DISTINCT studenti.cognome, studenti.nome
-FROM unicorsi.pianidistudio JOIN unicorsi.studenti 
+FROM pianidistudio JOIN studenti 
 ON pianidistudio.studente = studenti.matricola
-JOIN unicorsi.corsidilaurea
+JOIN corsidilaurea
 ON studenti.corsodilaurea = corsidilaurea.id
 WHERE pianidistudio.anno = 5 AND corsidilaurea.denominazione = 'Informatica'
 AND pianidistudio.annoaccademico = 2011

@@ -1,2 +1,2 @@
-SELECT matricola, cognome, nome FROM unicorsi.studenti
+SELECT matricola, cognome, nome FROM studenti
 WHERE iscrizione<2007 AND relatore IS NULL;

@@ -1,7 +1,7 @@
 Select
 	matricola
 From
-	unicorsi.studenti, unicorsi.corsidilaurea
+	studenti, corsidilaurea
 Where
 	corsidilaurea.denominazione = 'Informatica' 
 	AND studenti.laurea < DATE '1-Nov-2009'

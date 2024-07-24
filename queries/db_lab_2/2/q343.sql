@@ -1,3 +1,3 @@
-SELECT facolta, denominazione, attivazione from unicorsi.corsidilaurea
+SELECT facolta, denominazione, attivazione from corsidilaurea
 WHERE attivazione < '2006/2007' OR attivazione > '2009/2010'
 ORDER BY facolta, denominazione

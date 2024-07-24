@@ -1,3 +1,3 @@
-select studenti.cognome, studenti.nome, 'studente' as qualifica from unicorsi.studenti
+select studenti.cognome, studenti.nome, 'studente' as qualifica from studenti
 UNION
-select professori.cognome, professori.nome, 'professore' as qualifica from unicorsi.professori 
+select professori.cognome, professori.nome, 'professore' as qualifica from professori 

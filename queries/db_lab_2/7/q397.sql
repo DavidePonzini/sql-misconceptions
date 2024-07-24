@@ -1,5 +1,5 @@
 SELECT cognome, nome, 'studente' AS qualifica
-FROM unicorsi.studenti
+FROM studenti
 UNION
 SELECT cognome, nome, 'professore' AS qualifica
-FROM unicorsi.professori;
+FROM professori;

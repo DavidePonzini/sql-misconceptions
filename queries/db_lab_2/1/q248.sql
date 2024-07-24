@@ -1,3 +1,3 @@
 SELECT matricola, nome, cognome
-FROM unicorsi.studenti
+FROM studenti
 WHERE iscrizione < 2007 AND relatore IS NULL

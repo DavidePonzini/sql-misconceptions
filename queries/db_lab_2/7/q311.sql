@@ -1,5 +1,5 @@
 SELECT Cognome, Nome, 'Studente' AS Qualifica 
-FROM unicorsi.Studenti
+FROM Studenti
 UNION
 SELECT Cognome, Nome, 'Professore' AS Qualifica 
-FROM unicorsi.Professori;
+FROM Professori;

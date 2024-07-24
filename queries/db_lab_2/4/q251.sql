@@ -1,5 +1,5 @@
 SELECT studenti.matricola
-FROM unicorsi.corsidilaurea, unicorsi.studenti
+FROM corsidilaurea, studenti
 WHERE corsidilaurea.id = studenti.corsodilaurea
 AND corsidilaurea.denominazione = 'Informatica'
 and studenti.laurea < '2009-01-11'

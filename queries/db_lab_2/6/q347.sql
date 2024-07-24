@@ -1,6 +1,6 @@
-select cognome, nome from unicorsi.studenti
-join unicorsi.pianidistudio on studente = matricola
-where unicorsi.pianidistudio.anno = '5' 
-AND unicorsi.pianidistudio.annoaccademico = '2011'
-AND unicorsi.studenti.relatore IS NOT NULL
+select cognome, nome from studenti
+join pianidistudio on studente = matricola
+where pianidistudio.anno = '5' 
+AND pianidistudio.annoaccademico = '2011'
+AND studenti.relatore IS NOT NULL
 ORDER BY cognome desc

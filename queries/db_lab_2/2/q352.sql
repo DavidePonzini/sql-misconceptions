@@ -2,7 +2,7 @@ select
 	facolta,
 	denominazione
 from
-	unicorsi.corsidilaurea
+	corsidilaurea
 where
 	attivazione < '2006' OR attivazione > '2010' 
 ORDER BY 

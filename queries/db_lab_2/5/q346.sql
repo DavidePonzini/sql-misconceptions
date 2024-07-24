@@ -1,2 +1,2 @@
-select studenti.cognome, studenti.nome, professori.cognome as relatore from unicorsi.studenti
-join unicorsi.professori on id = relatore
+select studenti.cognome, studenti.nome, professori.cognome as relatore from studenti
+join professori on id = relatore
