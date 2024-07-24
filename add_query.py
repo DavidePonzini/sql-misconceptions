@@ -4,7 +4,7 @@ import re
 import pyperclip
 
 
-def find_max_id(directory):
+def get_next_filename(directory = '.'):
     max_value = None
     pattern = re.compile(r'q(\d+)\.sql')
 
@@ -17,10 +17,13 @@ def find_max_id(directory):
                 if max_value is None or value > max_value:
                     max_value = value
 
-    return max_value
+    if max_value is None:
+        messages.critical_error('No query files found.')
 
-def create_file(file_name, content):
-    with open(file_name, 'w') as file:
+    return f'q{max_value + 1}.sql'
+
+def add_query(folder, filename, content):
+    with open(f'{folder}/{filename}', 'w') as file:
         file.write(content)
 
 
@@ -29,15 +32,10 @@ if __name__ == '__main__':
     argument_parser.add_argument('dir', help='directory where the query is going to be added')
     argument_parser.args
 
-
-    max_id = find_max_id('.')
-    if max_id is None:
-        messages.critical_error('No query files found.')
-
-    filename = f'{argument_parser.args.dir}/q{max_id + 1}.sql'
+    filename = get_next_filename()
     query = pyperclip.paste()
 
-    create_file(filename, query)
+    add_query(argument_parser.args.dir, filename, query)
 
     messages.success(f'Created file {filename}')
     messages.info(query)
