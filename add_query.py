@@ -37,5 +37,5 @@ if __name__ == '__main__':
 
     add_query(argument_parser.args.dir, filename, query)
 
-    messages.success(f'Created file {filename}')
+    messages.success(f'Created file {argument_parser.args.dir}/{filename}')
     messages.info(query)

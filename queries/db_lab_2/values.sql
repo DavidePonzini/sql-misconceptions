@@ -311,8 +311,6 @@ INSERT INTO Esami VALUES ('pd123745', 'ig', '06/1/2010', 22);
 
 
 -------------------------------------------------------
----------- VALUES ADDED MANUALLY FOR TESTING ----------
--------------------------------------------------------
 
 INSERT INTO Studenti VALUES ('test001', 'Serra', 'BBB', 'NotGenova', '07/08/1984', 'Genova', 9, '2001', null, '01/01/2002');
 INSERT INTO Studenti VALUES ('test002', 'Melogno', 'AAA', 'NotGenova', '07/08/1984', 'Genova', 9, '2002', null, '01/01/2003');
