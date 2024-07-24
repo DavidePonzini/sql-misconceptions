@@ -1,1 +1,1 @@
-List last name, first name, and status (‘student’/‘professor’) of students and professors. [A query can return a constant value; just include this value in the SELECT clause.]
+List last name, first name, and status (‘studente’/‘professore’) of students and professors. [A query can return a constant value; just include this value in the SELECT clause.]

@@ -1,1 +1,1 @@
-List the student ID and names, in reverse student ID order, of students whose last name is not ‘Serra’, ‘Melogno’ or ‘Giunchi’ or who reside in a city among Genoa, La Spezia, and Savona.
+List the student ID and names, in reverse student ID order, of students whose last name is not ‘Serra’, ‘Melogno’ or ‘Giunchi’ or who reside in a city among Genova, La Spezia, and Savona.

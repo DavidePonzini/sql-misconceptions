@@ -1,0 +1,1 @@
+SELECT studenti.matricola, studenti.nome, studenti.cognome FROM studenti, corsidilaurea, pianidistudio WHERE studenti.relatore IS NOT NULL AND pianidistudio.anno=5 AND pianidistudio.studente = studenti.matricola AND annoaccademico= 2011 AND studenti.corsodilaurea=corsidilaurea.id AND denominazione= 'Informatica' ORDER BY studenti.cognome DESC;

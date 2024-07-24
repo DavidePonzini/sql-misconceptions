@@ -1,0 +1,1 @@
+SELECT DISTINCT s.cognome, s.nome FROM studenti AS s, pianidistudio AS pds WHERE s.matricola=pds.studente AND s.relatore IS NOT NULL AND pds.annoaccademico=2011 AND pds.anno=5 ORDER BY s.cognome DESC, s.nome DESC

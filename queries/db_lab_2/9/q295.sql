@@ -1,0 +1,1 @@
+SELECT e.studente FROM esami AS e WHERE e.corso='bdd1n' AND DATA BETWEEN '01-06-2010' AND '30-06-2010' INTERSECT SELECT e.studente FROM esami AS e WHERE e.corso='ig' AND DATA BETWEEN '01-06-2010' AND '30-06-2010'

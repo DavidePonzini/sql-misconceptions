@@ -1,1 +1,1 @@
-List the computer science students who passed both Databases 1 and Graphic Interfaces in June 2010.
+List the computer science students who passed both Databases 1 (basi di dati 1) and Graphic Interfaces (interfacce grafiche) in June 2010.
