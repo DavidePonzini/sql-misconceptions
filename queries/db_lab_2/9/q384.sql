@@ -1,0 +1,1 @@
+SELECT matricola FROM studenti, corsidilaurea WHERE id = corsodilaurea AND denominazione = 'Informatica' INTERSECT SELECT studente FROM esami WHERE corso = 'bdd1n' AND voto >= 18 AND data >= '2010-06-01' AND data <= '2010-06-30' EXCEPT SELECT studente FROM esami WHERE corso = 'graf' AND voto < 18 AND data >= '2010-06-01' AND data <= '2010-06-30';

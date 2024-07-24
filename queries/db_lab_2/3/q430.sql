@@ -1,0 +1,1 @@
+WHERE (studenti.residenza LIKE 'Genova'OR studenti.residenza LIKE 'La Spezia' OR studenti.residenza LIKE 'Savona')OR (studenti.cognome NOT LIKE 'Serra'OR studenti.cognome NOT LIKE'Melogno'OR studenti.cognome NOT LIKE'Giunchi')ORDER BY matricola DESC ;

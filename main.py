@@ -50,15 +50,15 @@ def check_columns_match(result: tuple, expected_result: tuple):
 
 def setup_schema(schema: str, connection: database.PostgreSQLConnection):
         connection.create_schema(schema)
-        messages.info(f'Created schema "{schema}"')
+        # messages.info(f'Created schema "{schema}"')
         connection.set_schema(schema)
         connection.execute(tables)
-        messages.info('Created tables')
+        # messages.info('Created tables')
 
 def delete_schema(schema: str):
     with db.connect() as c:
         c.delete_schema(schema)
-        messages.info(f'Deleted schema "{schema}"')
+        # messages.info(f'Deleted schema "{schema}"')
         
         c.commit()
 
@@ -90,7 +90,7 @@ def check_query(tables: str, values: str, query: str, correct_query: str):
 
             # generate test dataset
             c.execute(values)
-            messages.info('Added values')
+            # messages.info('Added values')
 
             # get query result
             try:
@@ -114,9 +114,11 @@ def check_query(tables: str, values: str, query: str, correct_query: str):
                                 text_options=[[messages.TextFormat.Style.BOLD, messages.TextFormat.Style.REVERSE]])
                 return
 
-            check_row_number(result, correct_result)
-            check_columns_match(result_columns, correct_result_columns)
-            check_values(result, correct_result)
+            rows_ok = check_row_number(result, correct_result)
+            columns_ok = check_columns_match(result_columns, correct_result_columns)
+            
+            if rows_ok and columns_ok:
+                check_values(result, correct_result)
 
         finally:
             delete_schema(schema)
