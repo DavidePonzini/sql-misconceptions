@@ -16,7 +16,7 @@ CREATE TABLE Cliente (
     idClient SERIAL PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     indirizzo VARCHAR(255),
-    città VARCHAR(255),
+    città VARCHAR(255),
     nazione VARCHAR(255)
 );
 
@@ -30,7 +30,7 @@ CREATE TABLE Ordine (
 CREATE TABLE DettaglioOrdine (
     idOrd INT,
     idProd INT,
-    quantità INT,
+    quantità INT,
     PRIMARY KEY (idOrd, idProd),
     FOREIGN KEY (idOrd) REFERENCES Ordine(idOrd),
     FOREIGN KEY (idProd) REFERENCES Prodotto(idProd)
