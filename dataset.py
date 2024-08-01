@@ -3,23 +3,28 @@
 from dav_tools import argument_parser, messages, chatgpt
 import pyperclip
 
-def make_prompt(query: str, tables: str, values=''):
-    return f'''Generate the following query in SQL, using the following tables.
+def make_prompt(tables: str, queries: list[str] = []):
+    result = f'''
+Generate a dataset for the following tables.
+The dataset should be designed with particular values so that it can be used to detect if a query contains errors.
+For each query, there should be at least one values that should be included in the result and one value which should not.
 
--- query --
-{query}
-
--- tables --
+--- tables ---
 {tables}
-
-{values}
 '''
+
+    for i, query in enumerate(queries):
+
+        result += f'''
+--- query {i + 1} ---
+{query}
+'''
+    return result
 
 
 if __name__ == '__main__':
-    argument_parser.add_argument('query', help='File containing query request in natural language')
     argument_parser.add_argument('tables', help='File containing CREATE TABLE commands')
-    argument_parser.add_argument('values', nargs='?', help='File containing INSERT INTO commands')
+    argument_parser.add_argument('queries', nargs='+', help='Files containing query requests in natural language')
     argument_parser.add_argument('--model', help='ChatGPT model to use. If not set, print the prompt to screen', choices=[
         chatgpt.AIModel.GPT3,
         chatgpt.AIModel.GPT4o,
@@ -28,19 +33,15 @@ if __name__ == '__main__':
 
     argument_parser.args
 
-    with open(argument_parser.args.query) as f:
-        query = f.read()
-
     with open(argument_parser.args.tables) as f:
         tables = f.read()
 
-    if argument_parser.args.values is not None:
-        with open(argument_parser.args.values) as f:
-            values = f.read()
-    else:
-        values = ''
+    queries = []
+    for file in argument_parser.args.queries:
+        with open(file) as f:
+            queries.append(f.read())
 
-    prompt = make_prompt(query, tables, values)
+    prompt = make_prompt(tables, queries)
 
     # if no model is specified, copy the prompt for manual execution
     if argument_parser.args.model is None:

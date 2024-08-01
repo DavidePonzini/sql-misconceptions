@@ -1,0 +1,1 @@
+Select the names of the products in the beverages category (bevande) that were not ordered in 2023.

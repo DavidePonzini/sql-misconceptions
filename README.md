@@ -11,3 +11,4 @@ This tool automatically executes a query and tries to identify which errors are 
 
 # Notes
 - Queries must not specify a schema, otherwise they won't be executed correctly
+- ChatGTP was given query requests in English, even if the original request was in Italian

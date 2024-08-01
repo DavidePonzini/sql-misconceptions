@@ -1,0 +1,1 @@
+Select the total amount of the last order made by the customer having id "1234".
