@@ -8,7 +8,7 @@ WITH LastOrder AS (
 )
 
 -- Step 2: Calculate the total amount for that order
-SELECT SUM(d.quantità * p.prezzo) AS TotalAmount
+SELECT SUM(d.quantità * p.prezzo) AS TotalAmount
 FROM DettaglioOrdine d
 JOIN Prodotto p ON d.idProd = p.idProd
 JOIN LastOrder l ON d.idOrd = l.idOrd;

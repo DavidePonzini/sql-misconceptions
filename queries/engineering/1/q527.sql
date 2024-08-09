@@ -5,4 +5,4 @@ WHERE c.nome = 'bevande'
 AND p.idProd NOT IN (SELECT d.idProd
 FROM Dettaglio_Ordine d WHERE d.idOrd IN ( SELECT idOrd
 FROM Dettaglio_Ordine
-WHERE YEAR data = '2023'
+WHERE EXTRACT(YEAR FROM O.data) = '2023'

@@ -5,5 +5,5 @@ WHERE idProd NOT IN (
     FROM DettaglioOrdine
     JOIN Ordine ON DettaglioOrdine.idOrd = Ordine.idOrd
     JOIN Cliente ON Ordine.idClient = Cliente.idClient
-    WHERE Cliente.città IN ('Venezia', 'Brescia')
+    WHERE Cliente.città IN ('Venezia', 'Brescia')
 );

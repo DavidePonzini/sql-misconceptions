@@ -6,5 +6,5 @@ FROM Dettaglio_Ordine
 JOIN Ordine O ON
 d.idOrd= O.idOrd
 JOIN Cliente C ON O.IdClient = c.idClient
-WHERE C.CIttà = "venezia" OR
+WHERE C.città = "venezia" OR
 c.città ="Brescia");

@@ -1,5 +1,5 @@
 SELECT 
-    SUM(p.prezzo * d.quantità) AS total_amount
+    SUM(p.prezzo * d.quantità) AS total_amount
 FROM 
     Ordine o
 JOIN 

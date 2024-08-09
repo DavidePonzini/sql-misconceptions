@@ -5,5 +5,5 @@ ON Dettaglio_Ordine.idProd=Prodotto.idProd) ON Ordine. idord = Dettaglio_Ordine.
 INNER jOIN CLIENTE ON cliente.idClient = ordine.idClient
 INTERSECT
 select prodotto.nome
-FROM ORDINE JOIN DETTAGIO ORDINE JOIN PRODOTO JOIN Cliente
+FROM ORDINE JOIN DETTAGIOORDINE JOIN PRODOTO JOIN Cliente
 WHERE Cliente.città = 'VENEZIA' AND Cliente.città = 'BRESCIA'
