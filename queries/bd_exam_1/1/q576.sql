@@ -1,0 +1,11 @@
+SELECT IdG
+FROM (SELECT DISTINCT IdT,IdG 
+      FROM GIOCAIN
+      NATURAL JOIN 
+      (SELECT idG FROM CATEGORIA WHERE genereCategoria = 'singolo')
+      WHERE idG IN (SELECT IdG FROM GIOCATORE WHERE
+      Genere = 'F')) P
+      JOIN(SELECT DISTINCT IdT,IdG FROM GIOCAIN NATURAL JOIN(SELECT IdG
+      FROM CATEGORIA WHERE genereCategoria = 'doppio') WHERE IdG IN (SELECT 
+      FROM GIOCATORE WHERE genere = 'F')) S
+      ON P.idT = S.idT 

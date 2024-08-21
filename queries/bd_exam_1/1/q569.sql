@@ -1,0 +1,12 @@
+SELECT IDG 
+FROM GIOCATORE IDCAT
+NATURAL JOIN GIOCAIN G
+NATURAL JOIN CATEGORIA CATEGORIA
+WHERE I.Genere = 'donna' AND C.GenereCategoria = 'singolo'
+AND IdG IN (SELECT IdG
+            FROM GIOCATORE NATURAL JOIN CATEGORIA I2
+            NATURAL JOIN GIOCAIN G2
+            WHERE I2.GenereCategoria = 'doppio'
+            AND G.IdT = G2.IdT
+
+)
