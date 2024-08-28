@@ -1,37 +1,48 @@
-CREATE TABLE Categoria (
-    idCat SERIAL PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL
+-- Table: GIOCATORE
+CREATE TABLE GIOCATORE (
+    IdG SERIAL PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Cognome VARCHAR(100) NOT NULL,
+    Genere CHAR(1) NOT NULL,
+    DataN DATE NOT NULL,
+    Nazione VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Prodotto (
-    idProd SERIAL PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    fornitore VARCHAR(255),
-    idCat INT,
-    prezzo DECIMAL(10, 2),
-    FOREIGN KEY (idCat) REFERENCES Categoria(idCat)
+CREATE TABLE TORNEO (
+    IdT SERIAL PRIMARY KEY,
+    NomeT VARCHAR(100) NOT NULL,
+    Luogo VARCHAR(100) NOT NULL,
+    DataI DATE NOT NULL,
+    DataF DATE NOT NULL,
+    NumTurni INT NOT NULL,
+    Tipo VARCHAR(50) NOT NULL,
+    Terreno VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE Cliente (
-    idClient SERIAL PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    indirizzo VARCHAR(255),
-    città VARCHAR(255),
-    nazione VARCHAR(255)
+-- Table: CATEGORIA
+CREATE TABLE CATEGORIA (
+    IdCat SERIAL PRIMARY KEY,
+    NomeCategoria VARCHAR(100) NOT NULL,
+    GenereCategoria CHAR(1) NOT NULL
 );
 
-CREATE TABLE Ordine (
-    idOrd SERIAL PRIMARY KEY,
-    idClient INT,
-    data DATE,
-    FOREIGN KEY (idClient) REFERENCES Cliente(idClient)
+-- Table: REGISTRAZIONE
+CREATE TABLE REGISTRAZIONE (
+    IdT INT REFERENCES TORNEO(IdT) ON DELETE CASCADE,
+    IdCat INT REFERENCES CATEGORIA(IdCat) ON DELETE CASCADE,
+    NumRegistrazione SERIAL PRIMARY KEY,
+    DataRegistrazione DATE NOT NULL,
+    TestaDiSerie BOOLEAN NOT NULL,
+    UNIQUE (IdT, IdCat, NumRegistrazione)
 );
 
-CREATE TABLE DettaglioOrdine (
-    idOrd INT,
-    idProd INT,
-    quantità INT,
-    PRIMARY KEY (idOrd, idProd),
-    FOREIGN KEY (idOrd) REFERENCES Ordine(idOrd),
-    FOREIGN KEY (idProd) REFERENCES Prodotto(idProd)
+-- Table: GIOCAIN
+CREATE TABLE GIOCAIN (
+    IdT INT,
+    IdCat INT,
+    NumRegistrazione INT,
+    IdG INT REFERENCES GIOCATORE(IdG) ON DELETE CASCADE,
+    PRIMARY KEY (IdT, IdCat, NumRegistrazione, IdG),
+    FOREIGN KEY (IdT, IdCat, NumRegistrazione) 
+        REFERENCES REGISTRAZIONE(IdT, IdCat, NumRegistrazione) ON DELETE CASCADE
 );

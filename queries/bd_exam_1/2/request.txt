@@ -1,0 +1,1 @@
+The French players/hedgehogs who have never been TestaDiSerie (Boolean attribute TestaDiSerie)
