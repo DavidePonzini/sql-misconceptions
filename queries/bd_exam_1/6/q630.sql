@@ -1,0 +1,2 @@
+SELECT idG FROM GIOCAIN
+HAVING MAX(count(idt))
