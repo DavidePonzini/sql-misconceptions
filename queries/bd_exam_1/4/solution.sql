@@ -1,6 +1,6 @@
 SELECT DISTINCT IdG
-FROM GIOCATORE NATURAL JOIN GIOCAIN NATURAL JOIN CATEGORIA
-WHERE Genere = 'f' AND NomeCategoria = 'singolo'
-AND (IdG, IdT) IN (SELECT DISTINCT IdG, IdT
-FROM GIOCAIN NATURAL JOIN CATEGORIA
-WHERE NomeCategoria = 'doppio')
+FROM GIOCATORE 
+WHERE Nazione = 'Germania'
+AND IdG NOT IN (SELECT DISTINCT IdG
+                                  FROM GIOCAIN NATURAL JOIN TORNEO
+                                  WHERE NomeT = 'Wimbledon')

@@ -1,0 +1,7 @@
+SELECT IdG
+FROM GIOCATORE
+WHERE NAZIONE = 'Germania' AND IdG NOT IN (
+    SELECT IdT
+    FROM TORNEO
+    WHERE NomeT = 'Wimbledon'
+);

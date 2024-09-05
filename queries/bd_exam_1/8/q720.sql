@@ -1,0 +1,9 @@
+SELECT IdT 
+FROM Torneo 
+NATURAL JOIN Giocain 
+GROUP BY IdT 
+HAVING AVG(YEAR(DATE()) - YEAR(DataN)) >= ALL (
+    SELECT AVG(YEAR(DATE()) - YEAR(DataN)) 
+    FROM Giocatore 
+    GROUP BY IdG
+);

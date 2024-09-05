@@ -1,0 +1,8 @@
+SELECT * 
+FROM TORNEO 
+WHERE IdT = (
+    SELECT IdT 
+    FROM REGISTRAZIONE 
+    GROUP BY IdT 
+    HAVING MAX(COUNT(TestaDiSerie = TRUE))
+);

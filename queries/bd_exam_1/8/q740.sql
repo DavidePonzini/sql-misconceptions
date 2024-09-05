@@ -1,0 +1,6 @@
+SELECT IDT 
+FROM GIOCATORE NATURAL JOIN GIOCAIN T
+WHERE AVG(YEAR(CURRENT_DATE - DATAN)) >= ALL (SELECT AVG(YEAR(CURRENT_DATE - DATAN))
+                                             FROM GIOCAIN NATURAL JOIN GIOCATORE
+                                             WHERE T.IDT = IDT)
+GROUP BY IDT;

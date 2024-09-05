@@ -1,0 +1,9 @@
+SELECT IdG
+FROM GIOCATORE
+WHERE NAZIONE = 'Germania'
+AND IdG NOT IN (
+    SELECT IdG
+    FROM GIOCAIN 
+     NATURAL JOIN TORNEO
+    WHERE NomeT = 'Wimbledon'
+);

@@ -1,0 +1,12 @@
+SELECT IdT 
+FROM TORNEO T 
+WHERE (
+    SELECT COUNT(*)
+    FROM REGISTRAZIONE R
+    WHERE R.IdT = T.IdT AND R.TestaDiSerie
+) >= ALL (
+    SELECT COUNT(*)
+    FROM REGISTRAZIONE
+    WHERE TestaDiSerie
+    GROUP BY IdT
+);

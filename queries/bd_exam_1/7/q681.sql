@@ -1,0 +1,10 @@
+SELECT IdT
+FROM REGISTRAZIONE
+WHERE TestaDiSerie = 'True'
+GROUP BY IdT
+HAVING COUNT(*) >= ALL (
+    SELECT COUNT(*)
+    FROM REGISTRAZIONE
+    WHERE TestaDiSerie = 'True'
+    GROUP BY IdT
+);
