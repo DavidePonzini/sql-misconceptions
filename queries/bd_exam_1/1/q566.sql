@@ -5,4 +5,4 @@ WHERE Genere = 'F' AND NomeCategoria = 'SINGOLI')
 INTERSECT
 (SELECT IDG,IdT
 FROM GIOCAIN NATURAL JOIN CATEGORIA
-WHERE NomeCategoria = 'POPPI'))
+WHERE NomeCategoria = 'DOPPI'))
