@@ -1,1 +1,1 @@
-D.	Il torneo con l’età media dei giocatori più alta (considerata giusta anche età corrente)
+The tournament with the highest average age of players (also considered correct current age)
