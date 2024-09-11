@@ -1,0 +1,8 @@
+SELECT T.NomeT, COUNT(DISTINCT G.Nazione) AS DistinctNations
+FROM TORNEO T
+JOIN REGISTRAZIONE R ON T.IdT = R.IdT
+JOIN GIOCAIN GI ON R.IdT = GI.IdT AND R.NumRegistrazione = GI.NumRegistrazione AND R.IdCat = GI.IdCat
+JOIN GIOCATORE G ON GI.IdG = G.IdG
+GROUP BY T.IdT, T.NomeT
+ORDER BY DistinctNations DESC
+LIMIT 1;

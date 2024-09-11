@@ -1,0 +1,8 @@
+SELECT DISTINCT G1.IdG, G1.Nome, G1.Cognome, G1.Nazione, G1.Genere
+FROM GIOCATORE G
+JOIN GIOCAIN GI1 ON G.IdG = GI1.IdG
+JOIN CATEGORIA C1 ON GI1.IdCat = C1.IdCat
+JOIN GIOCAIN GI2 ON G.IdG = GI2.IdG AND GI1.IdT = GI2.IdT
+JOIN CATEGORIA C2 ON GI2.IdCat = C2.IdCat
+WHERE C1.NomeCategoria = 'singles' 
+  AND C2.NomeCategoria = 'doubles';

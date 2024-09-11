@@ -1,0 +1,6 @@
+SELECT G.IdG, G.Nome, G.Cognome, COUNT(DISTINCT GIN.IdT) AS TournamentCount
+FROM GIOCATORE G
+JOIN GIOCAIN GIN ON G.IdG = GIN.IdG
+GROUP BY G.IdG, G.Nome, G.Cognome
+ORDER BY TournamentCount DESC
+LIMIT 1;
