@@ -1,0 +1,3 @@
+[submodule "error_detection"]
+	path = error_detection
+	url = git@github.com:DavidePonzini/sql-error-detection.git
