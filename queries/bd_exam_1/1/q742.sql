@@ -7,5 +7,5 @@ JOIN GIOCAIN gi2 ON g.IdG = gi2.IdG
 JOIN REGISTRAZIONE r2 ON gi2.IdT = r2.IdT AND gi2.IdCat = r2.IdCat AND gi2.NumRegistrazione = r2.NumRegistrazione
 JOIN CATEGORIA c2 ON r2.IdCat = c2.IdCat
 WHERE c1.NomeCategoria = 'singles'
-AND c2.NomeCategoria = 'doubles'
+AND c2.NomeCategoria = 'doppio'
 AND gi1.IdT = gi2.IdT;
